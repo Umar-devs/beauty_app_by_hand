@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">beauty_enhance</string>
+    <string name="facebook_app_id">328697029922293</string>
+    <string name="fb_login_protocol_scheme">fb328697029922293</string>
+    <string name="facebook_client_token">6848b39ce54365441ffacb43aa3bfc37</string>
+</resources>
