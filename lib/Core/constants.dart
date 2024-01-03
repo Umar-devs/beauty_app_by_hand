@@ -14,3 +14,10 @@ LinearGradient whiteLinearGradient = const LinearGradient(colors: [
   Color(0xffffffff),
   Color(0xffffffff),
 ]);
+double screenWidth(BuildContext context) {
+  return MediaQuery.of(context).size.width;
+}
+
+double screenHeight(BuildContext context) {
+  return MediaQuery.of(context).size.height;
+}

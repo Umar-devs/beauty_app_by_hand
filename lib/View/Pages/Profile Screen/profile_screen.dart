@@ -18,7 +18,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../../../Services/Profile Screen Data Services/fetch_profile_data.dart';
-import '../Widgets/Reusable Components/reusable_txt.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({super.key});

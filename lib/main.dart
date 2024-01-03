@@ -1,13 +1,13 @@
 import 'package:beauty_app_by_hand/Core/utils.dart';
 import 'package:beauty_app_by_hand/View/Pages/Auth/Login/login.dart';
 import 'package:beauty_app_by_hand/View/Pages/Home%20Screen/home_screen.dart';
-import 'package:beauty_app_by_hand/View/Pages/Profile%20Screen/profile_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:firebase_core/firebase_core.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   try {
@@ -37,8 +37,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
         home:
-        // ProfileScreen()
-        auth == null ? const LoginScreen() : HomeScreen()
-    );
+            // ProfileScreen()
+            auth == null ? const LoginScreen() : HomeScreen());
   }
 }
