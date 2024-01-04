@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
 import '../../../Widgets/Reusable Components/reusable_txt.dart';
 import '../../Register/register_screen.dart';
 
