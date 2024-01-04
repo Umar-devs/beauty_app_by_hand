@@ -1,3 +1,4 @@
+import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +10,7 @@ class ForgotPasswordText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenWidth=MediaQuery.of(context).size.width;
+    double width=screenWidth(context);
     return Align(
       alignment: Alignment.center,
       child: GestureDetector(
@@ -20,7 +21,7 @@ class ForgotPasswordText extends StatelessWidget {
           },
           child: ReusableText(
               weight: FontWeight.w500,
-              fontSize: screenWidth * 0.03333,
+              fontSize: width * 0.03333,
               clr: Colors.black,
               lbl: 'Forgot Password?')),
     );

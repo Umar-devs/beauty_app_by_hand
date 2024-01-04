@@ -19,7 +19,7 @@ class ReferenceToLoginScreenRow extends StatelessWidget {
             lbl: 'Already have an account?'),
         GestureDetector(
             onTap: () {
-              Get.to(const LoginScreen(),
+              Get.to( LoginScreen(),
                   transition: Transition.leftToRight,
                  );
             },

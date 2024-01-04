@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     Future.delayed(
         const Duration(seconds: 2),
-        () => Get.offAll(const LoginScreen(),
+        () => Get.offAll( LoginScreen(),
             transition: Transition.rightToLeft,
             duration: const Duration(milliseconds: 500)));
     return Container(

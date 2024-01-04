@@ -32,7 +32,7 @@ class AuthController extends GetxController {
         await Future.delayed(const Duration(seconds: 2));
         Utils().toastMessage('User Registered Successfully');
         Get.offAll(
-          const LoginScreen(),
+           LoginScreen(),
           transition: Transition.fadeIn,
         );
         saveName(name);
@@ -107,7 +107,7 @@ class AuthController extends GetxController {
   Future<void> signOut() async {
     try {
       await FirebaseAuth.instance.signOut().then((value) =>
-          Get.offAll(const LoginScreen(), transition: Transition.fadeIn));
+          Get.offAll( LoginScreen(), transition: Transition.fadeIn));
       Utils().toastMessage('User signed out successfully');
     } catch (e) {
       Utils().toastMessage('Error signing out: $e');
