@@ -1,5 +1,6 @@
 import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:beauty_app_by_hand/View/Data/lists.dart';
+import 'package:beauty_app_by_hand/View/Pages/Auth/Login/login_data.dart';
 import 'package:beauty_app_by_hand/View/Pages/Auth/Register/terms_and_conditions.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -21,21 +22,12 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   final AuthController controller = Get.put(AuthController());
-  final emailTextController = TextEditingController();
-  final passwordTextController = TextEditingController();
-  final confirmPasswordTextController = TextEditingController();
-  final addressTextController = TextEditingController();
-  final nameController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
   bool checkedValue = false;
   @override
   Widget build(BuildContext context) {
-    final List controllersList = [
-      nameController,
-      emailTextController,
-      passwordTextController,
-      confirmPasswordTextController,
-    ];
+
 
     return Container(
       height: widget.screenHeight,
@@ -79,7 +71,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   child: TxtField(
                       label: registerFieldsHints[i],
-                      textEditingController: controllersList[i],
+                      textEditingController: txtControllers[i],
                       fieldIcon: Icon(
                         registerIcons[i],
                         size: widget.screenWidth * 0.055,
@@ -134,9 +126,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           onChanged: (newValue) {
                             setState(() {
                               checkedValue = newValue!;
-                              if (kDebugMode) {
-                                print(checkedValue.toString());
-                              }
                             });
                           },
                           controlAffinity: ListTileControlAffinity
@@ -159,16 +148,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       } else {
                         if (_formKey.currentState!.validate()) {
                           Utils().toastMessage('Working..');
-                          if (passwordTextController.text !=
-                              confirmPasswordTextController.text) {
+                          if (txtControllers[2].text !=
+                              txtControllers[3].text) {
                             Utils().toastMessage('Password not match');
                             return;
                           }
 
                           controller.signUp(
-                            emailTextController,
-                            passwordTextController,
-                            nameController.text.toString(),
+                            txtControllers[1],
+                            txtControllers[2],
+                            txtControllers[0].text.toString(),
                           );
                         }
                       }

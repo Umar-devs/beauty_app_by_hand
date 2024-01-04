@@ -1,3 +1,4 @@
+import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:beauty_app_by_hand/View/Pages/Home%20Screen/home_screen.dart';
 import 'package:flutter_signin_button/button_builder.dart';
 import 'package:get/get.dart';
@@ -10,23 +11,23 @@ class SocialLoginRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    double screenHeight=MediaQuery.of(context).size.height;
-    double screenWidth=MediaQuery.of(context).size.width;
+    double height=screenHeight(context);
+    double width=screenWidth(context);
     return SizedBox(
-      width: screenWidth,
+      width: width,
       child: Row(
         children: [
           const Spacer(
             flex: 1,
           ),
           SizedBox(
-            width: screenWidth * 0.06,
+            width: width * 0.06,
           ),
           Expanded(
               flex: 1,
               child: SizedBox(
-                height: screenHeight * 0.05,
-                width: screenWidth * 0.16,
+                height: height * 0.05,
+                width: width * 0.16,
                 child: SignInButtonBuilder(
                   highlightColor: Colors.grey.shade200,
                   backgroundColor: Colors.transparent,
@@ -37,8 +38,8 @@ class SocialLoginRow extends StatelessWidget {
                         title: '',
                         titleStyle: const TextStyle(fontSize: 0),
                         content: SizedBox(
-                          height: screenHeight * 0.15,
-                          width: screenWidth * 0.5,
+                          height: height * 0.15,
+                          width: width * 0.5,
                           child: const Column(
                             children: [
                               Spacer(),
@@ -63,13 +64,13 @@ class SocialLoginRow extends StatelessWidget {
                 ),
               )),
           SizedBox(
-            width: screenWidth * 0.03,
+            width: width * 0.03,
           ),
           Expanded(
               flex: 1,
               child: SizedBox(
-                width: screenWidth * 0.18,
-                height: screenHeight * 0.05,
+                width: width * 0.18,
+                height: height * 0.05,
                 child: SignInButtonBuilder(
                   highlightColor: Colors.grey.shade200,
                   splashColor: Colors.white,

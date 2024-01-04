@@ -1,3 +1,4 @@
+import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../Widgets/Reusable Components/reusable_txt.dart';
@@ -8,28 +9,28 @@ class ReferenceToRegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context).size.height;
-    double screenWidth = MediaQuery.of(context).size.width;
+    double height = screenHeight(context);
+    double width = screenWidth(context);
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         ReusableText(
             weight: FontWeight.w500,
-            fontSize: screenWidth * 0.03,
+            fontSize: width * 0.03,
             lbl: 'Don`t have an account?'),
         GestureDetector(
             onTap: () {
               Get.to(
                 RegisterScreen(
-                  screenWidth: screenWidth,
-                  screenHeight: screenHeight,
+                  screenWidth: width,
+                  screenHeight: height,
                 ),
                 transition: Transition.rightToLeft,
               );
             },
             child: ReusableText(
               weight: FontWeight.w600,
-              fontSize: screenWidth * 0.035,
+              fontSize: width * 0.035,
               lbl: '  Register',
               clr: Colors.black,
             ))
