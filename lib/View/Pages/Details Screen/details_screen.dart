@@ -21,13 +21,13 @@ class DetailsScreen extends StatelessWidget {
   final int numOfSubCategories;
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final screenHeight = MediaQuery.of(context).size.height;
+    final width = screenWidth(context);
+    final height = screenHeight(context);
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
           leading: BackBtn(
-            screenWidth: screenWidth,
+            screenWidth: width,
           ),
           backgroundColor: themeColor,
           centerTitle: true,
@@ -35,7 +35,7 @@ class DetailsScreen extends StatelessWidget {
             title,
             textAlign: TextAlign.left,
             style: GoogleFonts.playfair(
-              fontSize: screenWidth * 0.06,
+              fontSize: width * 0.06,
               fontWeight: FontWeight.w600,
               decoration: TextDecoration.none,
               color: Colors.black,
@@ -47,20 +47,19 @@ class DetailsScreen extends StatelessWidget {
           scrollDirection: Axis.vertical,
           physics: const BouncingScrollPhysics(),
           child: Padding(
-            padding: EdgeInsets.only(
-                left: screenWidth * 0.035, right: screenWidth * 0.035),
+            padding: EdgeInsets.only(left: width * 0.035, right: width * 0.035),
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: screenHeight * 0.025),
+                  padding: EdgeInsets.symmetric(vertical: height * 0.025),
                   child: ReusableText(
                       weight: FontWeight.w400,
-                      fontSize: screenWidth * 0.035,
+                      fontSize: width * 0.035,
                       alignTxt: TextAlign.start,
                       lbl: categoryDetails),
                 ),
                 Padding(
-                  padding: EdgeInsets.only(bottom: screenHeight * 0.025),
+                  padding: EdgeInsets.only(bottom: height * 0.025),
                   child: SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     physics: const BouncingScrollPhysics(),
@@ -71,9 +70,9 @@ class DetailsScreen extends StatelessWidget {
                             margin: EdgeInsets.only(
                                 right: i == numOfSubCategories - 1
                                     ? 0
-                                    : screenWidth * 0.05),
-                            height: screenHeight * 0.33,
-                            width: screenWidth * 0.65,
+                                    : width * 0.05),
+                            height: height * 0.33,
+                            width: width * 0.65,
                             decoration: BoxDecoration(
                                 color: themeColor,
                                 borderRadius: BorderRadius.circular(10)),
@@ -119,20 +118,21 @@ class DetailsScreen extends StatelessWidget {
                                               : title == categories[5]
                                                   ? subCategoryPriceSprayTan[i]
                                                   : title == categories[6]
-                                                      ? subCategoryPriceWaxing[i]
+                                                      ? subCategoryPriceWaxing[
+                                                          i]
                                                       : title == categories[7]
                                                           ? subCategoryPriceLashes[
                                                               i]
                                                           : subCategoryPriceMakeUp[
                                                               i]);
                           Get.to(
-                            const BookAppointmentScreen(),
+                             BookAppointmentScreen(),
                             transition: Transition.fadeIn,
                           );
                         },
                         child: SubCategory(
-                          screenWidth: screenWidth,
-                          screenHeight: screenHeight,
+                          screenWidth: width,
+                          screenHeight: height,
                           subCategoriesTitle: numOfSubCategories == 4 //1
                               ? subCategoriesHair[i]
                               : numOfSubCategories == 8

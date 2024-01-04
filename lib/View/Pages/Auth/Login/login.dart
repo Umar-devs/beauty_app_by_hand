@@ -6,6 +6,7 @@ import '../../../../Controller/Auth Controller/auth_controller.dart';
 import '../../Widgets/Reusable Components/reusable_txt.dart';
 import '../../Widgets/Reusable Components/txt_field.dart';
 import 'Components/forgot_password.dart';
+import 'Components/login_btn.dart';
 import 'Components/or_text_row.dart';
 import 'Components/ref_to_register_screen.dart';
 import 'Components/social_login.dart';
@@ -22,7 +23,8 @@ class _LoginScreenState extends State<LoginScreen> {
   final loginEmailTextController = TextEditingController();
   final loginPasswordTextController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-final LoadingStopController loadingStopController=Get.put(LoadingStopController());
+  final LoadingStopController loadingStopController =
+      Get.put(LoadingStopController());
   bool tapped = false;
 
   @override
@@ -43,7 +45,7 @@ final LoadingStopController loadingStopController=Get.put(LoadingStopController(
               Image.asset(
                 'assets/images/login icon.png',
                 height: screenHeight * 0.12,
-                width: screenWidth*0.24,
+                width: screenWidth * 0.24,
               ),
               Column(
                 children: [
@@ -91,7 +93,6 @@ final LoadingStopController loadingStopController=Get.put(LoadingStopController(
               ),
               GestureDetector(
                 onTap: () {
-
                   if (_formKey.currentState!.validate()) {
                     controller.login(loginEmailTextController.text.toString(),
                         loginPasswordTextController.text.toString());
@@ -100,22 +101,9 @@ final LoadingStopController loadingStopController=Get.put(LoadingStopController(
                     });
                   }
                 },
-                child: Container(
-                  margin: EdgeInsets.symmetric(
-                    horizontal: screenWidth * 0.073,
-                  ),
-                  height: screenHeight * 0.067,
-                  width: screenWidth,
-                  decoration: BoxDecoration(
-                      color: themeColor,
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Center(
-                      child:  ReusableText(
-                              weight: FontWeight.w600,
-                              fontSize: screenWidth * 0.04,
-                              lbl: 'Login',
-                              clr: Colors.black,
-                            )),
+                child: LoginBtn(
+                  screenWidth: screenWidth,
+                  screenHeight: screenHeight,
                 ),
               ),
               const ForgotPasswordText(),

@@ -4,7 +4,7 @@ import '../Pages/Home Screen/home_screen.dart';
 import '../Pages/Profile Screen/profile_screen.dart';
 
 final List<Widget> widgetOptions = [
-  const BookAppointmentScreen(),
+   BookAppointmentScreen(),
   HomeScreen(),
    ProfileScreen(),
 ];

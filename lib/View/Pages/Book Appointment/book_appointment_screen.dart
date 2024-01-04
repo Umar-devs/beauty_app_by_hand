@@ -13,14 +13,13 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 
 class BookAppointmentScreen extends StatelessWidget {
-  const BookAppointmentScreen({super.key});
-
+  BookAppointmentScreen({super.key});
+  final GetTimeController getTimeController = Get.put(GetTimeController());
+  final GetDateController getDateController = Get.put(GetDateController());
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final double screenHeight = MediaQuery.of(context).size.height;
-    final GetTimeController getTimeController = Get.put(GetTimeController());
-    final GetDateController getDateController = Get.put(GetDateController());
+    final double width = screenWidth(context);
+    final double height = screenHeight(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xffebc1a9).withOpacity(0.5),
@@ -31,11 +30,11 @@ class BookAppointmentScreen extends StatelessWidget {
             },
             icon: Icon(
               FontAwesomeIcons.arrowLeft,
-              size: screenWidth * 0.045,
+              size: width * 0.045,
             )),
         title: ReusableText(
             weight: FontWeight.w600,
-            fontSize: screenWidth * 0.04,
+            fontSize: width * 0.04,
             lbl: 'Appointment'),
       ),
       backgroundColor: themeLightColor,
@@ -45,88 +44,88 @@ class BookAppointmentScreen extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              margin: EdgeInsets.only(bottom: screenHeight * 0.025),
-              height: screenHeight * 0.22,
+              margin: EdgeInsets.only(bottom: height * 0.025),
+              height: height * 0.22,
               color: Colors.white,
               child: const CalendarWidget(title: 'Set Your Day'),
             ),
             TimeTitle(
-              screenWidth: screenWidth,
+              screenWidth: width,
               title: 'Morning Slots',
-              topPadding: screenHeight * 0.022,
-              bottomPadding: screenHeight * 0.015,
+              topPadding: height * 0.022,
+              bottomPadding: height * 0.015,
             ),
             TimeSlotsRow(
-              screenWidth: screenWidth,
+              screenWidth: width,
               loopStartNumber: 0,
               loopEndNumber: 3,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              screenHeight: screenHeight,
+              screenHeight: height,
             ),
             TimeTitle(
-              screenWidth: screenWidth,
+              screenWidth: width,
               title: 'Afternoon Slots',
-              topPadding: screenHeight * 0.025,
-              bottomPadding: screenHeight * 0.015,
+              topPadding: height * 0.025,
+              bottomPadding: height * 0.015,
             ),
             TimeSlotsRow(
-              screenWidth: screenWidth,
+              screenWidth: width,
               loopStartNumber: 3,
               loopEndNumber: 6,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              screenHeight: screenHeight,
+              screenHeight: height,
             ),
             const SizedBox(
               height: 2.5,
             ),
             TimeSlotsRow(
-              screenWidth: screenWidth,
+              screenWidth: width,
               loopStartNumber: 6,
               loopEndNumber: 7,
               wantSpace: true,
-              screenHeight: screenHeight,
+              screenHeight: height,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
             ),
             TimeTitle(
-              screenWidth: screenWidth,
+              screenWidth: width,
               title: 'Evening Slots',
-              topPadding: screenHeight * 0.025,
-              bottomPadding: screenHeight * 0.015,
+              topPadding: height * 0.025,
+              bottomPadding: height * 0.015,
             ),
             TimeSlotsRow(
-              screenWidth: screenWidth,
+              screenWidth: width,
               loopStartNumber: 8,
               loopEndNumber: 11,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              screenHeight: screenHeight,
+              screenHeight: height,
             ),
             const SizedBox(
               height: 2.5,
             ),
             TimeSlotsRow(
-              screenWidth: screenWidth,
+              screenWidth: width,
               loopStartNumber: 11,
               loopEndNumber: 12,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              screenHeight: screenHeight,
+              screenHeight: height,
             ),
             SizedBox(
-              height: screenHeight * 0.05,
+              height: height * 0.05,
             ),
             CustomBtn(
-                btnHeight: screenHeight * 0.055,
-                btnWidth: screenWidth * 0.7,
+                btnHeight: height * 0.055,
+                btnWidth: width * 0.7,
                 onTapFunction: () {
                   saveSlot(getTimeController.time.value);
                   saveDate(getDateController.date.value);
                   saveDay(getDateController.day.value);
                   Get.to(
                       SaveAddressScreen(
-                          screenWidth: screenWidth, screenHeight: screenHeight),
+                          screenWidth: width, screenHeight: height),
                       transition: Transition.fadeIn);
                 },
                 txtWeight: FontWeight.w600,
-                txtFontSize: screenWidth * 0.035,
+                txtFontSize: width * 0.035,
                 lbl: 'Book Appointment',
                 clr: themeColor,
                 txtColor: Colors.black)

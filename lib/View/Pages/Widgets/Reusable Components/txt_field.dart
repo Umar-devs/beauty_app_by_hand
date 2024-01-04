@@ -25,7 +25,7 @@ class TxtField extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenHeight=MediaQuery.of(context).size.height;
     double screenWidth=MediaQuery.of(context).size.width;
-    return Card(
+    return Material(
       elevation: 0,
       child: Container(
         height: screenHeight * 0.067,
