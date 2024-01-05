@@ -38,6 +38,6 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         home:
             // ProfileScreen()
-            auth == null ?  LoginScreen() : HomeScreen());
+            auth == null ? LoginScreen() : HomeScreen());
   }
 }

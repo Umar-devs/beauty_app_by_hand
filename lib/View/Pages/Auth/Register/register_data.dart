@@ -7,9 +7,15 @@ final confirmPasswordTextController = TextEditingController();
 final addressTextController = TextEditingController();
 final nameController = TextEditingController();
 
-List txtControllers=[
+List txtControllersRegister=[
   nameController,
   emailTextController,
   passwordTextController,
   confirmPasswordTextController,
+];
+final List registerIcons = [
+  Icons.person,
+  Icons.email,
+  Icons.lock,
+  Icons.lock,
 ];

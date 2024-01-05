@@ -2,24 +2,24 @@ import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:beauty_app_by_hand/Services/Treatment%20Services/save_data.dart';
 import 'package:beauty_app_by_hand/View/Data/lists.dart';
 import 'package:beauty_app_by_hand/View/Pages/Details%20Screen/details_screen.dart';
+import 'package:beauty_app_by_hand/View/Pages/Home%20Screen/Components/Widgets/all_treatments_image_box.dart';
 import 'package:beauty_app_by_hand/View/Pages/Widgets/Reusable%20Components/back_btn.dart';
 import 'package:beauty_app_by_hand/View/Pages/Widgets/Reusable%20Components/reusable_txt.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class AllTreatmentsScreen extends StatelessWidget {
   const AllTreatmentsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final double screenWidth = MediaQuery.of(context).size.width;
-    final double screenHeight = MediaQuery.of(context).size.height;
+    final double width = screenWidth(context);
+    final double height = screenHeight(context);
 
     return SafeArea(
       child: SizedBox(
-        height: screenHeight,
-        width: screenWidth,
+        height: height,
+        width: width,
         child: ColoredBox(
           color: themeLightColor,
           child: SingleChildScrollView(
@@ -28,16 +28,18 @@ class AllTreatmentsScreen extends StatelessWidget {
             child: Column(
               children: [
                 Padding(
-                  padding: EdgeInsets.symmetric(vertical: screenHeight * 0.01),
+                  padding: EdgeInsets.symmetric(vertical: height * 0.01),
                   child: Row(
                     children: [
-                       BackBtn(screenWidth: screenWidth,),
+                      BackBtn(
+                        screenWidth: width,
+                      ),
                       SizedBox(
-                        width: screenWidth * 0.2,
+                        width: width * 0.2,
                       ),
                       ReusableText(
                           weight: FontWeight.w600,
-                          fontSize: screenWidth * 0.045,
+                          fontSize: width * 0.045,
                           lbl: 'All Treatments'),
                     ],
                   ),
@@ -78,29 +80,8 @@ class AllTreatmentsScreen extends StatelessWidget {
                             ),
                             transition: Transition.size);
                       },
-                      child: Container(
-                        margin: EdgeInsets.only(
-                            top: 10,
-                            left: screenWidth * 0.025,
-                            right: screenWidth * 0.025),
-                        height: screenHeight * 0.08,
-                        width: screenWidth,
-                        decoration: BoxDecoration(
-                            image: DecorationImage(
-                                image: AssetImage(croppedImagesHomeScreen[i]),
-                                fit: BoxFit.cover)),
-                        child: Center(
-                          child: Text(
-                            treatmentsNames[i],
-                            style: GoogleFonts.abrilFatface(
-                              fontSize: screenWidth * 0.055,
-                              fontWeight: FontWeight.w400,
-                              color: Colors.white,
-                              decoration: TextDecoration.none,
-                            ),
-                          ),
-                        ),
-                      ))
+                      child: TreatmentsImgBox(
+                          screenWidth: width, screenHeight: height, i: i))
               ],
             ),
           ),

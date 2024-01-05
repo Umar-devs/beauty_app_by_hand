@@ -373,9 +373,4 @@ final List<String> registerFieldsHints = [
   'Set Password*',
   'Re-enter Password*',
 ];
-final List registerIcons = [
-  Icons.person,
-  Icons.email,
-  Icons.lock,
-  Icons.lock,
-];
+
