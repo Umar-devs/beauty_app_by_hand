@@ -1,7 +1,7 @@
-import 'package:beauty_app_by_hand/Controller/Address%20Controller/get_address_controller.dart';
 import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:beauty_app_by_hand/Services/Address%20Services/fetch_address.dart';
 import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Reusable%20Components/details_row.dart';
+import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Reusable%20Components/tile_divider.dart';
 import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Widgets/add_mobile.dart';
 import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Widgets/add_new_address.dart';
 import 'package:beauty_app_by_hand/View/Pages/Summary%20Screen/summary_screen.dart';
@@ -10,19 +10,19 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Widgets/Reusable Components/reusable_txt.dart';
 import 'package:get/get.dart';
+import 'data.dart';
 
 class SaveAddressScreen extends StatelessWidget {
-  SaveAddressScreen(
+  const SaveAddressScreen(
       {super.key, required this.screenWidth, required this.screenHeight});
   final double screenWidth;
   final double screenHeight;
-  final GetAddressController getAddressController =
-      Get.put(GetAddressController());
-  final GetPhoneController getPhoneController=Get.put(GetPhoneController());
+
   @override
   Widget build(BuildContext context) {
     fetchAddress();
     fetchPhone();
+    final widgetList = addTile(screenWidth);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xffebc1a9).withOpacity(0.5),
@@ -67,42 +67,7 @@ class SaveAddressScreen extends StatelessWidget {
                         weight: FontWeight.w600,
                         fontSize: screenWidth * 0.035,
                         lbl: 'Your Details'),
-                    Obx(() => DetailsRowSaveAddressScreen(
-                        screenWidth: screenWidth,
-                        title: 'Address Lane 1',
-                        detail: getAddressController.lane1.value.toString())),
-                    const Divider(
-                      color: Colors.black26,
-                      thickness: 0.5,
-                    ),
-                    Obx(() => DetailsRowSaveAddressScreen(
-                        screenWidth: screenWidth,
-                        title: 'Address Lane 2',
-                        detail: getAddressController.lane2.value.toString())),
-                    const Divider(
-                      color: Colors.black26,
-                      thickness: 0.5,
-                    ),
-                    Obx(() => DetailsRowSaveAddressScreen(
-                        screenWidth: screenWidth,
-                        title: 'City',
-                        detail: getAddressController.city.value.toString())),
-                    const Divider(
-                      color: Colors.black26,
-                      thickness: 0.5,
-                    ),
-                    Obx(() => DetailsRowSaveAddressScreen(
-                        screenWidth: screenWidth,
-                        title: 'County',
-                        detail: getAddressController.county.value.toString())),
-                    const Divider(
-                      color: Colors.black26,
-                      thickness: 0.5,
-                    ),
-                    Obx(() => DetailsRowSaveAddressScreen(
-                        screenWidth: screenWidth,
-                        title: 'Phone',
-                        detail: getPhoneController.phone.value.toString())),
+                    for (int i = 0; i < 9; i++) widgetList[i],
                   ],
                 ),
               ),
