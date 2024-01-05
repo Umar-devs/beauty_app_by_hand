@@ -2,7 +2,6 @@ import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:beauty_app_by_hand/View/Data/lists.dart';
 import 'package:beauty_app_by_hand/View/Pages/Auth/Login/login_data.dart';
 import 'package:beauty_app_by_hand/View/Pages/Auth/Register/terms_and_conditions.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../../../Controller/Auth Controller/auth_controller.dart';
