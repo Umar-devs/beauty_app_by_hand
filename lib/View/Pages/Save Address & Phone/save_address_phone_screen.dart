@@ -20,7 +20,7 @@ class SaveAddressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     fetchAddress();
     fetchPhone();
-   addDetailsRowTiles(screenWidth);
+    addDetailsRowTiles(screenWidth);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xffebc1a9).withOpacity(0.5),
@@ -65,7 +65,8 @@ class SaveAddressScreen extends StatelessWidget {
                         weight: FontWeight.w600,
                         fontSize: screenWidth * 0.035,
                         lbl: 'Your Details'),
-                    for (int i = 0; i < 9; i++) detailsRowTileList[i],
+                    for (int i = 0; i < detailsRowTileList.length; i++)
+                      detailsRowTileList[i],
                   ],
                 ),
               ),
