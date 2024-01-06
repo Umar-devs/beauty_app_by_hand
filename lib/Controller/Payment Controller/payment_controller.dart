@@ -92,7 +92,7 @@ class PaymentController extends GetxController {
     try {
       await Stripe.instance.presentPaymentSheet().then((value) {
         Get.to(
-           PaymentSuccessfulScreen(),
+           const PaymentSuccessfulScreen(),
           transition: Transition.cupertinoDialog,
           duration: const Duration(milliseconds: 1300),
         );

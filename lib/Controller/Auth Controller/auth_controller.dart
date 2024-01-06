@@ -49,7 +49,7 @@ class AuthController extends GetxController {
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
       Utils().toastMessage(value.user!.email.toString());
-      Get.offAll(HomeScreen(), transition: Transition.fadeIn);
+      Get.offAll(const HomeScreen(), transition: Transition.fadeIn);
     }).onError((error, stackTrace) {
       loadingStopController.changeErrorValue();
       debugPrint(error.toString());

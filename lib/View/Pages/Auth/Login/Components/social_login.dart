@@ -51,7 +51,7 @@ class SocialLoginRow extends StatelessWidget {
                           ),
                         ));
                     controller.signInWithGoogle().then((value) {
-                      Get.to( HomeScreen(),
+                      Get.to( const HomeScreen(),
                         transition: Transition.fadeIn,
                       );
                     });
@@ -78,7 +78,7 @@ class SocialLoginRow extends StatelessWidget {
                   elevation: 0,
                   onPressed: () {
                     controller.signInWithFacebook().then((value) => {
-                          Get.to( HomeScreen(),
+                          Get.to( const HomeScreen(),
                               transition: Transition.fadeIn,
                               duration: const Duration(milliseconds: 700))
                         });

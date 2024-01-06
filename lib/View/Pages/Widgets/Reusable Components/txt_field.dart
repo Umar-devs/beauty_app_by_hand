@@ -23,30 +23,30 @@ class TxtField extends StatelessWidget {
   final bool wantError;
   @override
   Widget build(BuildContext context) {
-    double screenHeight=MediaQuery.of(context).size.height;
-    double screenWidth=MediaQuery.of(context).size.width;
+    double height=screenHeight(context);
+    double width=screenWidth(context);
     return Material(
       elevation: 0,
       child: Container(
-        height: screenHeight * 0.067,
+        height: height * 0.067,
         width: customWidth,
         decoration: BoxDecoration(
             color: themeColor,
             borderRadius:
-            BorderRadius.all(Radius.circular(screenWidth * 0.025))),
+            BorderRadius.all(Radius.circular(width * 0.025))),
         child: Center(
           child: Padding(
-            padding: EdgeInsets.only(left: screenWidth * 0.04),
+            padding: EdgeInsets.only(left: width * 0.04),
             child: TextFormField(
               keyboardType: keyboardType,
               controller: textEditingController,
               decoration: InputDecoration(
                 icon: fieldIcon,
-                contentPadding: EdgeInsets.only(left: screenWidth * 0.03),
+                contentPadding: EdgeInsets.only(left: width * 0.03),
                 border: InputBorder.none,
                 hintText: label,
                 hintStyle: TextStyle(
-                  fontSize: screenWidth * 0.037,
+                  fontSize: width * 0.037,
                   fontWeight: FontWeight.w600,
                   color: Colors.black.withOpacity(0.4),
                 ),

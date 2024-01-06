@@ -5,8 +5,8 @@ import '../Pages/Profile Screen/profile_screen.dart';
 
 final List<Widget> widgetOptions = [
    BookAppointmentScreen(),
-  HomeScreen(),
-   ProfileScreen(),
+  const HomeScreen(),
+   const ProfileScreen(),
 ];
 final List iconsBottomNav = [
   const Icon(

@@ -1,7 +1,5 @@
 import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:beauty_app_by_hand/Services/Address%20Services/fetch_address.dart';
-import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Reusable%20Components/details_row.dart';
-import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Reusable%20Components/tile_divider.dart';
 import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Widgets/add_mobile.dart';
 import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Widgets/add_new_address.dart';
 import 'package:beauty_app_by_hand/View/Pages/Summary%20Screen/summary_screen.dart';
@@ -22,7 +20,7 @@ class SaveAddressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     fetchAddress();
     fetchPhone();
-    final widgetList = addTile(screenWidth);
+   addDetailsRowTiles(screenWidth);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xffebc1a9).withOpacity(0.5),
@@ -67,7 +65,7 @@ class SaveAddressScreen extends StatelessWidget {
                         weight: FontWeight.w600,
                         fontSize: screenWidth * 0.035,
                         lbl: 'Your Details'),
-                    for (int i = 0; i < 9; i++) widgetList[i],
+                    for (int i = 0; i < 9; i++) detailsRowTileList[i],
                   ],
                 ),
               ),

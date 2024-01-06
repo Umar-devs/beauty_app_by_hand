@@ -45,7 +45,7 @@ class UserInfoTile extends StatelessWidget {
                 alignment: Alignment.center,
                 child: GestureDetector(
                   onTap: () {
-                    Get.to(ProfileScreen(), transition: Transition.rightToLeft);
+                    Get.to(const ProfileScreen(), transition: Transition.rightToLeft);
                   },
                   child: CircleAvatar(
                     backgroundColor: themeColor,
