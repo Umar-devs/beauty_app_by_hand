@@ -65,7 +65,7 @@ class SaveAddressScreen extends StatelessWidget {
                         weight: FontWeight.w600,
                         fontSize: screenWidth * 0.035,
                         lbl: 'Your Details'),
-                    for (int i = 0; i < detailsRowTileList.length; i++)
+                    for (int i = 0; i < 9; i++)
                       detailsRowTileList[i],
                   ],
                 ),

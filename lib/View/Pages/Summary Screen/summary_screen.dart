@@ -209,7 +209,7 @@ class SummaryScreen extends StatelessWidget {
                           btnHeight: screenHeight * 0.04,
                           btnWidth: screenWidth * 0.27,
                           onTapFunction: () {
-                           Utils().toastMessage('Working..');
+                            Utils().toastMessage('Working..');
                             paymentController.makePayment(
                                 '${getPriceController.price.value}00');
                           },

@@ -27,10 +27,10 @@ List <Widget> detailsRowTileList=[];
 void addDetailsRowTiles(screenWidth){
   for(int i=0;i<9;i++){
     if(i%2==0){
-      detailsRowTileList.add( Obx(() => DetailsRowSaveAddressScreen(
+      detailsRowTileList.add( DetailsRowSaveAddressScreen(
           screenWidth: screenWidth,
           title:detailsRowTitle[i],
-          detail: detailsRowDetail[i])));
+          detail: detailsRowDetail[i]));
     }
     else{
       detailsRowTileList.add(const TileDivider());
