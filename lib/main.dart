@@ -1,6 +1,8 @@
 import 'package:beauty_app_by_hand/Core/utils.dart';
 import 'package:beauty_app_by_hand/View/Pages/Auth/Login/login.dart';
 import 'package:beauty_app_by_hand/View/Pages/Home%20Screen/home_screen.dart';
+import 'package:beauty_app_by_hand/View/Pages/Nav%20Bar/my_bottom_nav_bar.dart';
+import 'package:beauty_app_by_hand/View/Pages/Orders%20View/orders_view_screen.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -34,10 +36,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final auth = FirebaseAuth.instance.currentUser;
-    return GetMaterialApp(
-        debugShowCheckedModeBanner: false,
-        home:
-            // ProfileScreen()
-            auth == null ? LoginScreen() : const HomeScreen());
+    return  GetMaterialApp(
+        debugShowCheckedModeBanner: false, home:
+        // ProfileScreen()
+        auth == null ? LoginScreen() :  MyBottomNav()
+        );
   }
 }

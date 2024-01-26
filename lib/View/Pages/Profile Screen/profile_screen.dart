@@ -31,6 +31,7 @@ class ProfileScreen extends StatelessWidget {
         color: themeLightColor,
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
+          physics: const BouncingScrollPhysics(),
           child: Column(
             children: [
               Obx(() => TopProfileBox(

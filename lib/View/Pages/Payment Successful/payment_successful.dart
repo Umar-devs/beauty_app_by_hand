@@ -1,7 +1,6 @@
 import 'package:beauty_app_by_hand/Core/constants.dart';
-import 'package:beauty_app_by_hand/View/Pages/Home%20Screen/home_screen.dart';
-import 'package:beauty_app_by_hand/View/Pages/Payment%20Successful/Components/functions_call.dart';
-import 'package:beauty_app_by_hand/View/Pages/Payment%20Successful/payment_success_data.dart';
+import 'package:beauty_app_by_hand/View/Pages/Nav%20Bar/my_bottom_nav_bar.dart';
+import 'package:beauty_app_by_hand/View/Pages/Payment%20Successful/data/payment_success_data.dart';
 import 'package:beauty_app_by_hand/View/Pages/Widgets/Reusable%20Components/custom_btn.dart';
 import 'package:beauty_app_by_hand/View/Pages/Widgets/Reusable%20Components/reusable_txt.dart';
 import 'package:flutter/material.dart';
@@ -10,6 +9,7 @@ import 'Components/Reusable Components/content_divider.dart';
 import 'Components/Reusable Components/dark_color_divider.dart';
 import 'Components/Widgets/details_showing_container.dart';
 import 'Components/Widgets/top_circle.dart';
+import 'data/functions_call.dart';
 
 class PaymentSuccessfulScreen extends StatelessWidget {
   const PaymentSuccessfulScreen({
@@ -23,10 +23,9 @@ class PaymentSuccessfulScreen extends StatelessWidget {
     final height = screenHeight(context);
 
     // making instance of class ContentDivider and assign it to a variable
-    final  contentDivider =
-        ContentDivider(screenWidth: screenWidth(context));
+    final contentDivider = ContentDivider(screenWidth: screenWidth(context));
     // making instance of class DarkMarginDivider and assign it to a variable
-    final  darkMarginDivider =
+    final darkMarginDivider =
         DarkMarginDivider(screenWidth: screenWidth(context));
 
     //calling a function callRequiredFunctions() which calls all the required functions, this is to improve readability
@@ -61,7 +60,7 @@ class PaymentSuccessfulScreen extends StatelessWidget {
                       clr: Colors.grey,
                       lbl:
                           "Fantastic choice! Your beauty service is booked and confirmed. Prepare to dazzle and shine!"),
-                //Container Showing all details in screen
+                  //Container Showing all details in screen
                   detailsShowingContainer(
                     height,
                     width,
@@ -86,7 +85,7 @@ class PaymentSuccessfulScreen extends StatelessWidget {
                 btnHeight: height * 0.05,
                 btnWidth: width * 0.5,
                 onTapFunction: () {
-                  Get.offAll(const HomeScreen(), transition: Transition.fadeIn);
+                  Get.offAll( MyBottomNav(), transition: Transition.fadeIn);
                 },
                 txtWeight: FontWeight.w600,
                 txtFontSize: width * 0.035,

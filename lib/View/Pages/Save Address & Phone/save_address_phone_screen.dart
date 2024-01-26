@@ -1,5 +1,6 @@
 import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:beauty_app_by_hand/Services/Address%20Services/fetch_address.dart';
+import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Reusable%20Components/tile_divider.dart';
 import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Widgets/add_mobile.dart';
 import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Widgets/add_new_address.dart';
 import 'package:beauty_app_by_hand/View/Pages/Summary%20Screen/summary_screen.dart';
@@ -8,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../Widgets/Reusable Components/reusable_txt.dart';
 import 'package:get/get.dart';
+import 'Components/Reusable Components/details_row.dart';
 import 'data.dart';
 
 class SaveAddressScreen extends StatelessWidget {
@@ -20,7 +22,6 @@ class SaveAddressScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     fetchAddress();
     fetchPhone();
-    addDetailsRowTiles(screenWidth);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xffebc1a9).withOpacity(0.5),
@@ -65,8 +66,14 @@ class SaveAddressScreen extends StatelessWidget {
                         weight: FontWeight.w600,
                         fontSize: screenWidth * 0.035,
                         lbl: 'Your Details'),
-                    for (int i = 0; i < 9; i++)
-                      detailsRowTileList[i],
+                    for(int i=0;i<9;i++)
+                      i.isEven?
+                    Obx(() => DetailsRowSaveAddressScreen(
+                          screenWidth: screenWidth,
+                          title: detailsRowTitle[i],
+                          detail: detailsRowDetail[i].value.toString(),
+                        )):
+                          const TileDivider(),
                   ],
                 ),
               ),

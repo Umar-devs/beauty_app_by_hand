@@ -6,18 +6,18 @@ import 'package:get/get.dart';
 import '../../Data/widgets_list.dart';
 
 class MyBottomNav extends StatelessWidget {
-  MyBottomNav(
-      {super.key, required this.screenHeight, required this.screenWidth});
-  final double screenHeight;
-  final double screenWidth;
+  MyBottomNav({super.key});
+
   final NavBarController navBarController = Get.put(NavBarController());
   @override
   Widget build(BuildContext context) {
+    final double screenHeight = MediaQuery.of(context).size.height;
+    final double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       bottomNavigationBar: CurvedNavigationBar(
         index: 1,
         animationCurve: Curves.linearToEaseOut,
-        height: screenHeight * 0.08,
+        height: screenHeight * 0.075,
         onTap: (index) {
           navBarController.changeIndex(index);
         },
@@ -26,7 +26,7 @@ class MyBottomNav extends StatelessWidget {
           iconsBottomNav[1],
           iconsBottomNav[2],
         ],
-        color:  themeColor,
+        color: themeColor,
         backgroundColor: themeLightColor,
         buttonBackgroundColor: themeColor,
       ),
