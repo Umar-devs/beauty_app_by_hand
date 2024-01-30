@@ -2,6 +2,7 @@ import 'package:beauty_app_by_hand/Controller/Auth%20Controller/loading_stop_con
 import 'package:beauty_app_by_hand/Controller/Profile%20controller/email_controller.dart';
 import 'package:beauty_app_by_hand/Controller/Profile%20controller/name_controller.dart';
 import 'package:beauty_app_by_hand/View/Pages/Auth/Login/login.dart';
+import 'package:beauty_app_by_hand/View/Pages/Nav%20Bar/my_bottom_nav_bar.dart';
 import 'package:flutter/foundation.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -32,7 +33,7 @@ class AuthController extends GetxController {
         await Future.delayed(const Duration(seconds: 2));
         Utils().toastMessage('User Registered Successfully');
         Get.offAll(
-           LoginScreen(),
+          LoginScreen(),
           transition: Transition.fadeIn,
         );
         saveName(name);
@@ -49,7 +50,7 @@ class AuthController extends GetxController {
         .signInWithEmailAndPassword(email: email, password: password)
         .then((value) {
       Utils().toastMessage(value.user!.email.toString());
-      Get.offAll(const HomeScreen(), transition: Transition.fadeIn);
+      Get.offAll(MyBottomNav(), transition: Transition.fadeIn);
     }).onError((error, stackTrace) {
       loadingStopController.changeErrorValue();
       debugPrint(error.toString());
@@ -84,14 +85,17 @@ class AuthController extends GetxController {
       return await FirebaseAuth.instance.signInWithCredential(credential);
     } catch (e) {
       if (kDebugMode) {
-        Utils().toastMessage(e.toString());
-        print('google error: $e');
+        Utils().toastMessage('exception ${e.toString()}');
+        print('google error: ${e.toString()}');
       }
       return null;
     }
   }
 
   Future<UserCredential> signInWithFacebook() async {
+    final NameController nameController = Get.put(NameController());
+    final EmailController emailController = Get.put(EmailController());
+    User? user = FirebaseAuth.instance.currentUser;
     // Trigger the sign-in flow
     final LoginResult loginResult = await FacebookAuth.instance
         .login(permissions: ['email', 'public_profile']);
@@ -102,12 +106,14 @@ class AuthController extends GetxController {
 
     // Once signed in, return the UserCredential
     return FirebaseAuth.instance.signInWithCredential(facebookAuthCredential);
+    nameController.setName(user?.displayName);
+    emailController.setEmail(user?.email);
   }
 
   Future<void> signOut() async {
     try {
-      await FirebaseAuth.instance.signOut().then((value) =>
-          Get.offAll( LoginScreen(), transition: Transition.fadeIn));
+      await FirebaseAuth.instance.signOut().then(
+          (value) => Get.offAll(LoginScreen(), transition: Transition.fadeIn));
       Utils().toastMessage('User signed out successfully');
     } catch (e) {
       Utils().toastMessage('Error signing out: $e');

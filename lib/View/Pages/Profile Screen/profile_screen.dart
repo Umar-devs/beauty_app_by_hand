@@ -8,6 +8,7 @@ import 'package:beauty_app_by_hand/View/Pages/Profile%20Screen/Components/Widget
 import 'package:beauty_app_by_hand/View/Pages/Profile%20Screen/profile_data.dart';
 import 'package:beauty_app_by_hand/View/Pages/Save%20Address%20&%20Phone/Components/Reusable%20Components/edit_address_bottom_sheet.dart';
 import 'package:beauty_app_by_hand/View/Pages/Widgets/Reusable%20Components/custom_btn.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -16,7 +17,6 @@ import '../../../Services/Profile Screen Data Services/fetch_profile_data.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});
-
   @override
   Widget build(BuildContext context) {
     fetchName();

@@ -1,5 +1,6 @@
 import 'package:beauty_app_by_hand/Core/constants.dart';
 import 'package:beauty_app_by_hand/View/Pages/Home%20Screen/home_screen.dart';
+import 'package:beauty_app_by_hand/View/Pages/Nav%20Bar/my_bottom_nav_bar.dart';
 import 'package:flutter_signin_button/button_builder.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,7 @@ class SocialLoginRow extends StatelessWidget {
                           ),
                         ));
                     controller.signInWithGoogle().then((value) {
-                      Get.to( const HomeScreen(),
+                      Get.to(  MyBottomNav(),
                         transition: Transition.fadeIn,
                       );
                     });
@@ -78,7 +79,7 @@ class SocialLoginRow extends StatelessWidget {
                   elevation: 0,
                   onPressed: () {
                     controller.signInWithFacebook().then((value) => {
-                          Get.to( const HomeScreen(),
+                          Get.to( MyBottomNav(),
                               transition: Transition.fadeIn,
                               duration: const Duration(milliseconds: 700))
                         });

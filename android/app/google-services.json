@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "375864446012",
+    "firebase_url": "https://beauty-app-d3084-default-rtdb.firebaseio.com",
     "project_id": "beauty-app-d3084",
     "storage_bucket": "beauty-app-d3084.appspot.com"
   },
@@ -14,11 +15,11 @@
       },
       "oauth_client": [
         {
-          "client_id": "375864446012-o2nldq133s8glihacu0mebnedskge2i7.apps.googleusercontent.com",
+          "client_id": "375864446012-2pr8u6sf70pqekc8q76pubm9c90e5cdb.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.beauty_app_by_hand",
-            "certificate_hash": "6816d73a683b1f52a763ccfe4ecbefbaf4812f96"
+            "certificate_hash": "2a0ce4e0a20f78372b453f89462c0d0306ef4896"
           }
         },
         {

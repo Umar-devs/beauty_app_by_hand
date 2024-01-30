@@ -7,7 +7,7 @@ import '../Pages/Profile Screen/profile_screen.dart';
 final List<Widget> widgetOptions = [
   const OrdersView(),
   const HomeScreen(),
-  const ProfileScreen(),
+   ProfileScreen(),
 ];
 final List iconsBottomNav = [
   const Icon(
